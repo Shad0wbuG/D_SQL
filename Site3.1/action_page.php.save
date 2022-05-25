@@ -1,0 +1,64 @@
+
+<?php
+
+//echo '<pre>';
+
+// Outputs all the result of shellcommand "ls", and returns
+// the last output line into $last_line. Stores the return value
+// of the shell command in $retval.
+//$last_line = system('/bin/bash /var/www/html/dsql', $retval);
+
+// Printing additional info
+//echo '
+//</pre>
+//<hr />Last line of the output: ' . $last_line . '
+//<hr />Return value: ' . $retval;
+
+//$out = shell_exec('/var/www/html/dsql');
+
+//echo "<pre>$out</pre>";
+
+$url = $_GET['search'];
+$out = shell_exec('toilet --gay D-sql
+echo -e " for demo purpose only "
+python /var/www/html/sql/dsql -u "'.$url.'"
+
+');
+
+echo "<pre>$out</pre>";
+
+
+if (isset($_GET['level2'])) {
+	echo "TEST";
+    $out1 = shell_exec('
+
+    echo -e " for demo purpose only " 
+
+    sudo python /var/www/html/sql/dsql  -u "' . $url . '" --dbs 
+
+    ');
+
+	echo "<pre>$out1</pre>";
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://45.79.127.85/action_page.php?<?php echo $url ?>&&<?php echo $_GET" method="$_GET">
+        <input type="submit" name="level2" value="level2"/>
+    </form>
+</body>
+
+</html>
+

